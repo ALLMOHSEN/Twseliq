@@ -17,7 +17,7 @@
             display: block;
             margin-bottom: 10px;
         }
-        input {
+        select, input {
             width: 100%;
             padding: 10px;
             margin-bottom: 15px;
@@ -42,14 +42,24 @@
 </head>
 <body>
     <h1>موقع توصيل الطلبات</h1>
-    <ul>
-        <li>خان مندي</li>
-        <li>سوبر چكن</li>
-        <li>ويست بركر</li>
-    </ul>
     <form>
+        <label for="restaurants">اختر مطعمًا:</label>
+        <select id="restaurants" name="restaurants">
+            <option value="restaurant1">مطعم 1</option>
+            <option value="restaurant2">مطعم 2</option>
+            <option value="restaurant3">مطعم 3</option>
+        </select>
+
+        <label for="menu">اختر منيو:</label>
+        <select id="menu" name="menu">
+            <option value="menu1">قائمة الطعام 1</option>
+            <option value="menu2">قائمة الطعام 2</option>
+            <option value="menu3">قائمة الطعام 3</option>
+        </select>
+
         <label for="order">قم بإدخال طلبك:</label>
         <input type="text" id="order" name="order" required>
+        
         <button type="submit">قدم الطلب</button>
     </form>
     <script>
