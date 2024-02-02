@@ -44,7 +44,7 @@
     <h1>موقع توصيل الطلبات</h1>
     <form>
         <label for="restaurants">اختر مطعمًا:</label>
-        <select id="restaurants" name="restaurants">
+        <select id="restaurants" name="restaurants" onchange="updateMenu()">
             <option value="restaurant1">مطعم 1</option>
             <option value="restaurant2">مطعم 2</option>
             <option value="restaurant3">مطعم 3</option>
@@ -52,9 +52,7 @@
 
         <label for="menu">اختر منيو:</label>
         <select id="menu" name="menu">
-            <option value="menu1">قائمة الطعام 1</option>
-            <option value="menu2">قائمة الطعام 2</option>
-            <option value="menu3">قائمة الطعام 3</option>
+            <!-- تمت ملء القائمة بشكل دينامي باستخدام البرمجة الخاصة بك -->
         </select>
 
         <label for="order">قم بإدخال طلبك:</label>
@@ -63,7 +61,35 @@
         <button type="submit">قدم الطلب</button>
     </form>
     <script>
-        // يمكنك إضافة البرمجة الخاصة بك هنا
+        function updateMenu() {
+            var restaurantSelect = document.getElementById("restaurants");
+            var menuSelect = document.getElementById("menu");
+
+            // يمكنك تحديث المنيو بناءً على المطعم المحدد
+            menuSelect.innerHTML = "";
+
+            if (restaurantSelect.value === "restaurant1") {
+                addMenuOption("menu1", "قائمة الطعام 1");
+                addMenuOption("menu2", "قائمة الطعام 2");
+            } else if (restaurantSelect.value === "restaurant2") {
+                addMenuOption("menu3", "قائمة الطعام 3");
+                addMenuOption("menu4", "قائمة الطعام 4");
+            } else if (restaurantSelect.value === "restaurant3") {
+                addMenuOption("menu5", "قائمة الطعام 5");
+                addMenuOption("menu6", "قائمة الطعام 6");
+            }
+        }
+
+        function addMenuOption(value, text) {
+            var menuSelect = document.getElementById("menu");
+            var option = document.createElement("option");
+            option.value = value;
+            option.text = text;
+            menuSelect.add(option);
+        }
+
+        // تحديث قائمة المنيو عند تحميل الصفحة
+        updateMenu();
     </script>
 </body>
 </html>
