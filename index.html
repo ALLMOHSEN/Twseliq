@@ -8,10 +8,31 @@
         body {
             font-size: 18px;
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            width: 100%;
+            text-align: center;
+        }
+        main {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 1200px;
+            margin: 20px auto;
         }
         form {
-            max-width: 300px;
-            margin: 0 auto;
+            width: 60%;
+        }
+        aside {
+            background-color: #f4f4f4;
+            padding: 20px;
+            width: 30%;
         }
         label {
             display: block;
@@ -30,6 +51,7 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            width: 100%;
         }
         ul {
             list-style: none;
@@ -41,25 +63,37 @@
     </style>
 </head>
 <body>
-    <h1>موقع توصيل الطلبات</h1>
-    <form>
-        <label for="restaurants">اختر مطعمًا:</label>
-        <select id="restaurants" name="restaurants" onchange="updateMenu()">
-            <option value="restaurant1">مطعم 1</option>
-            <option value="restaurant2">مطعم 2</option>
-            <option value="restaurant3">مطعم 3</option>
-        </select>
+    <header>
+        <h1>موقع توصيل الطلبات</h1>
+    </header>
+    <main>
+        <form>
+            <label for="restaurants">اختر مطعمًا:</label>
+            <select id="restaurants" name="restaurants" onchange="updateMenu()">
+                <option value="restaurant1">مطعم 1</option>
+                <option value="restaurant2">مطعم 2</option>
+                <option value="restaurant3">مطعم 3</option>
+            </select>
 
-        <label for="menu">اختر منيو:</label>
-        <select id="menu" name="menu">
-            <!-- تمت ملء القائمة بشكل دينامي باستخدام البرمجة الخاصة بك -->
-        </select>
+            <label for="menu">اختر منيو:</label>
+            <select id="menu" name="menu">
+                <!-- تمت ملء القائمة بشكل دينامي باستخدام البرمجة الخاصة بك -->
+            </select>
 
-        <label for="order">قم بإدخال طلبك:</label>
-        <input type="text" id="order" name="order" required>
-        
-        <button type="submit">قدم الطلب</button>
-    </form>
+            <label for="order">قم بإدخال طلبك:</label>
+            <input type="text" id="order" name="order" required>
+            
+            <button type="submit">قدم الطلب</button>
+        </form>
+        <aside>
+            <h2>معلومات الحساب</h2>
+            <ul>
+                <li>الاسم: يوسف</li>
+                <li>البريد الإلكتروني: yousef@example.com</li>
+                <li>الرصيد: $100</li>
+            </ul>
+        </aside>
+    </main>
     <script>
         function updateMenu() {
             var restaurantSelect = document.getElementById("restaurants");
